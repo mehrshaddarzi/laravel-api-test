@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Blockquote shortcode start styles
+   ========================================================================== */
+blockquote{
+
+	.qodef-blockquote-text {
+		display: block;
+		vertical-align: top;
+		box-sizing: border-box;
+		border-left: 4px solid $first-main-color;
+		padding-left: 21px;
+	  	line-height: 29px;
+		font-weight: 500;
+	}  
+    
+}
+
+/* ==========================================================================
+   Blockquote shortcode end styles
+   ========================================================================== */

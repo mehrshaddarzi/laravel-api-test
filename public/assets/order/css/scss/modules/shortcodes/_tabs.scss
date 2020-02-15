@@ -1,0 +1,172 @@
+/* ==========================================================================
+# Tabs style - begin
+========================================================================== */
+.qodef-tabs {
+    
+    .qodef-tabs-nav {                
+        display: block;
+        position: relative;
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        vertical-align: middle;
+        @include qodefBoxSizing(border-box);
+
+        li {
+            margin: 0;
+
+            a {
+                position: relative;
+                display: block;
+                padding: 4px 22px;
+                color: #101010;
+                background-color: #f8f8f8;
+                border: 0;
+                font-size: 13px;
+                line-height: 29px;
+                font-weight: 500;
+                letter-spacing: 0;
+                font-family: Poppins, sans-serif;
+                @include qodefBoxSizing(border-box);
+                @include qodefTransition(color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out);
+
+                i,
+                span {
+                    @include qodefTransition(initial);
+                }
+
+                .qodef-icon-frame {
+                    display: inline-block;
+                    min-width: 20px;
+                    line-height: 1;
+                    vertical-align: middle;
+                }
+
+                .qodef-tab-text-after-icon {
+                    @include qodefTransition(initial);
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .qodef-tab-container {     
+        position: relative;
+        @include qodefBoxSizing(border-box);
+
+        img {
+            margin: 9px 20px 17px 0;
+        }
+    }
+}
+
+/* Icon tabs styles
+   ========================================================================== */
+.qodef-tabs.qodef-horizontal-tab.qodef-tab-with-icon ul li a {
+
+    .qodef-tab-text-after-icon {
+        padding: 0 4px 0 0;
+    }
+}
+
+.qodef-tabs.qodef-vertical-tab.qodef-tab-with-icon ul li a {
+
+    .qodef-tab-text-after-icon {
+        padding: 0 0 0 13px;
+    }
+}
+
+.qodef-tabs.qodef-tab-with-icon ul li:hover .qodef-icon-frame  {
+    @include qodefAnimation(qodef-appear .35s forwards ease);
+}
+
+@include keyframes(qodef-appear) {
+    0% {
+        opacity: 0;
+        @include qodefTransform(translateX(25px));
+    }
+    30% {
+        opacity: .1;
+        @include qodefTransform(translateX(15px));
+    }
+    100% {
+        opacity: 1;
+        @include qodefTransform(translateX(0px));
+    }
+}
+
+/* Horizontal tabs styles
+   ========================================================================== */
+.qodef-tabs.qodef-horizontal-tab {
+    
+    .qodef-tabs-nav li {
+        float: left;
+
+        a {
+            text-align: center;
+            margin-right: 3px;
+            border-top: 3px solid #f8f8f8;
+            line-height: 26px;
+        }
+
+        &.ui-state-active a,
+        &.ui-state-hover a {
+            background-color: #fff;
+            border-top-color: $first-main-color;
+        }
+    }
+
+    .qodef-tab-container {
+        padding: 5px 3px;
+    }
+}
+
+/* Vertical tabs styles
+   ========================================================================== */
+.qodef-tabs.qodef-vertical-tab {
+    
+    .qodef-tabs-nav {
+        float: left;
+        width: 32%;
+
+        li {
+            position: relative;
+            display: block;
+            width: 100%;
+
+            a {
+                margin-bottom: 3px;
+                border-left: 3px solid #f8f8f8;
+                padding: 13px 22px;
+            }
+
+            &.ui-state-active a,
+            &.ui-state-hover a {
+                border-left-color: $first-main-color;
+                background-color: #fff;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+        }   
+    }
+
+    .qodef-tab-container {
+        float: left;
+        width: 68%;
+        padding: 0 30px;
+    }
+}
+
+.qodef-tabs.qodef-vertical-tab.qodef-tab-only-icon {
+    
+    .qodef-tabs-nav li a {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+# Tabs style - end
+========================================================================== */

@@ -1,0 +1,28 @@
+@include ipad-landscape{
+
+	.qodef-search-fade-in.qodef-search-fade .qodef-fullscreen-search-holder.qodef-animate .qodef-fullscreen-search-shader{
+		-webkit-animation: nav-in-mobile 1.4s cubic-bezier(.23, 1, .32, 1);
+		animation: nav-in-mobile 1.4s cubic-bezier(.23, 1, .32, 1)
+	}
+
+	.qodef-form-holder .qodef-search-field,
+	.qodef-woocommerce-page .qodef-form-holder .qodef-search-field {
+	    font-size: 26px;
+	}
+
+	.qodef-search-opener{
+		margin: 0 5px;
+		vartical-align:middle;
+	}
+}
+
+@include phone-landscape{
+	.qodef-fullscreen-search-holder .qodef-field-holder{
+		padding: 0 10px;
+	}
+	
+	.qodef-fullscreen-search-holder .qodef-search-submit{
+		right: 10px;
+		font-size:30px;
+	}
+}

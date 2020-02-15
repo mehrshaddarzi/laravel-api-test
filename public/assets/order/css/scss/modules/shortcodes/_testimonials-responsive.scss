@@ -1,0 +1,22 @@
+.qodef-testimonials-holder {
+  .qodef-testimonials {
+    .qodef-testimonial-content {
+      @include ipad-portrait {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px !important;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    &.owl-carousel {
+      .owl-buttons .owl-prev,
+      .owl-buttons .owl-next {
+        @include ipad-portrait {
+          display: none;
+        }
+      }
+    }
+  }
+}

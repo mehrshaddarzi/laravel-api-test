@@ -1,0 +1,660 @@
+/* ==========================================================================
+   WPML style start
+   ========================================================================== */
+
+/* common wpml style */
+.widget_icl_lang_sel_widget {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  #lang_sel_list {
+	ul {
+	  list-style-type: none;
+	}
+  }
+}
+
+%wpml-dropdown-styles {
+  position: relative;
+  @include qodefBoxSizing(border-box);
+
+  .lang_sel_sel {
+	position: relative;
+	display: block;
+
+	&:after {
+	  content: '\33';
+	  font-family: 'ElegantIcons';
+
+	  position: absolute;
+	  right: 10px;
+	  top: 50%;
+	  display: block;
+
+	  @include qodefTransform(translateY(-50%));
+	}
+  }
+
+  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+	  border-bottom: 0;
+	}
+  }
+
+  ul ul {
+	position: absolute;
+	top: 100%;
+	width: calc(100% + 2px);
+	left: -1px;
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+
+	border-top: none;
+	padding: 10px 18px;
+
+	@include qodefBoxSizing(border-box);
+	@include qodefTransition(visibility 0s linear 0.25s, opacity 0.25s ease-in-out);
+
+	a {
+	  display: block;
+	}
+  }
+
+  &:hover {
+	ul ul {
+	  opacity: 1;
+	  visibility: visible;
+
+	  -webkit-transition-delay: 0s;
+	  -moz-transition-delay: 0s;
+	  transition-delay: 0s;
+	}
+  }
+
+}
+
+/* Sidebar wpml style */
+.qodef-sidebar,
+.wpb_widgetised_column {
+
+  .widget_icl_lang_sel_widget {
+	width: 100%;
+
+	img {
+	  display: inline-block !important;
+	  vertical-align: middle;
+	}
+  }
+
+  //dropdown styles
+  #lang_sel {
+	@extend %wpml-dropdown-styles;
+	border: 1px solid #e6e6e6;
+
+	li {
+	  margin-bottom: 0;
+	}
+
+	.lang_sel_sel {
+	  padding: 8px 18px;
+	  font-weight: 400;
+	  color: #777777;
+	  font-size: 13px;
+	  display: inline-block;
+	  right: 0;
+	  width: 100%;
+	  @include qodefBoxSizing(border-box);
+
+	  &:after {
+		right: 5px;
+	  }
+	}
+
+	ul ul {
+	  background-color: #fff;
+	  border: 1px solid #e6e6e6;
+	  padding: 0;
+
+	  a {
+		padding: 8px 18px;
+		font-weight: 400;
+		color: #777777;
+		font-size: 13px;
+
+		&:hover {
+		  text-decoration: none;
+		  color: $first-main-color;
+		}
+	  }
+
+	  img {
+		margin: 0 5px 0 0;
+	  }
+	}
+  }
+
+  //list styles
+  #lang_sel_list {
+
+	ul li {
+	  padding: 5px 0;
+	}
+  }
+
+  .lang_sel_list_horizontal {
+
+	ul li {
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin: 0 15px 5px 0;
+
+	  &:last-child {
+		margin: 0 0 5px;
+	  }
+	}
+  }
+}
+
+/* sidearea wpml style */
+.qodef-side-menu {
+  .widget.widget_icl_lang_sel_widget {
+	width: 100%;
+	overflow: visible;
+  }
+
+  //dropdown styles
+  #lang_sel {
+	@extend %wpml-dropdown-styles;
+	border: 1px solid #dcdcdc;
+
+	.lang_sel_sel {
+	  padding: 8px 18px;
+	  display: inline-block;
+	  width: 100%;
+	  @include qodefBoxSizing(border-box);
+	  span {
+		color: #777777;
+	  }
+	}
+
+	ul {
+	  background-color: #f7f7f7;
+	}
+
+	a {
+	  color: #777777;
+	  margin-bottom: 0;
+	  font-size: 13px;
+
+	  span {
+		color: #777777;
+	  }
+	}
+
+	ul ul {
+	  border: 1px solid #dcdcdc;
+	  padding: 0;
+	  @include 	qodefTransform(translateZ(0));
+
+	  a {
+		color: #fff;
+		padding: 8px 18px;
+		font-size: 13px;
+
+		span {
+		  color: #777777;
+		}
+
+		&:hover span {
+		  color: $first-main-color;
+		}
+	  }
+
+	  img {
+		margin: 0 5px 0 0;
+	  }
+	}
+  }
+
+  //list tyles
+  #lang_sel_list {
+
+	img {
+	  margin-right: 5px;
+	}
+  }
+
+  .lang_sel_list_horizontal {
+
+	ul li {
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin: 0 15px 5px 0;
+
+	  &:last-child {
+		margin: 0 0 5px;
+	  }
+	}
+  }
+
+  .qodef-footer-bottom-holder {
+
+	#lang_sel_list {
+	  line-height: 1.4em;
+	}
+  }
+}
+
+/* footer wpml styles */
+.qodef-footer-inner {
+
+  .widget_icl_lang_sel_widget {
+	width: 100%;
+  }
+
+  //dropdown styles
+  #lang_sel {
+	@extend %wpml-dropdown-styles;
+	border: 1px solid #fff;
+
+	.lang_sel_sel {
+	  padding: 8px 18px;
+	}
+
+	ul {
+	  background-color: #191919;
+	}
+
+	a {
+	  color: #fff;
+	  margin-bottom: 0;
+	  font-size: 13px;
+	  padding: 8px 18px;
+
+	  &:hover {
+		color: #fff;
+	  }
+	}
+
+	ul ul {
+	  border: 1px solid #fff;
+	  padding: 0;
+
+	  a {
+		color: #fff;
+		padding: 8px 18px;
+		font-size: 13px;
+
+		&:hover {
+		  color: $first-main-color;
+		}
+	  }
+
+	  img {
+		margin: 0 5px 0 0;
+	  }
+	}
+  }
+
+  //list tyles
+  #lang_sel_list {
+
+	img {
+	  margin-right: 5px;
+	}
+  }
+
+  .lang_sel_list_horizontal {
+
+	ul li {
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin: 0 15px 5px 0;
+
+	  &:last-child {
+		margin: 0 0 5px;
+	  }
+	}
+  }
+
+  .qodef-footer-bottom-holder {
+
+	#lang_sel_list {
+	  line-height: 1.4em;
+	}
+
+	#lang_sel {
+	  ul {
+		background-color: #3b3b3b;
+	  }
+	  ul ul {
+		bottom: 100%;
+		top: auto;
+	  }
+	  .lang_sel_sel:after {
+		content: "\32";
+	  }
+	}
+  }
+}
+
+/* header top area wpml style */
+.qodef-top-bar {
+
+  .qodef-position-right-inner .widget_icl_lang_sel_widget {
+	margin-left: 20px;
+  }
+
+  #lang_sel {
+	@extend %wpml-dropdown-styles;
+	margin-left: 20px;
+
+	.lang_sel_sel {
+	  font-size: 10px;
+	  color: #b2b2b2;
+	  font-weight: 500;
+	  padding: 0 28px 0 7px;
+	  background-color: #383838;
+	  line-height: 23px;
+	  vertical-align: middle;
+	  display: inline-block;
+	  font-family: Poppins, sans-serif;
+
+	  span {
+		margin-right: 15px;
+	  }
+
+	  &:after {
+		right: 0;
+		border-left: 1px solid #565656;
+		width: 23px;
+		@include qodefBoxSizing(border-box);
+		text-align: center;
+	  }
+
+	  &:hover {
+		color: #b2b2b2;
+	  }
+
+	  img {
+		vertical-align: middle;
+	  }
+	}
+
+	ul {
+	  list-style-type: none;
+	}
+	
+	ul li {
+	  line-height: 23px;
+	}
+
+	ul ul {
+	  width: 200px;
+	  padding: 8px 0 10px;
+	  left: 0;
+	  text-align: left;
+	  line-height: 1.7em;
+	  background-color: #383838;
+
+	  img {
+		vertical-align: middle;
+		margin-right: 5px;
+	  }
+
+	  a {
+		color: #b2b2b2;
+		font-size: 10px;
+		font-weight: 500;
+		font-family: Poppins, sans-serif;
+		display: block;
+		padding: 6px 7px 6px 17px;
+		vertical-align: middle;
+		width: 100%;
+		@include qodefBoxSizing(border-box);
+		@include qodefTransition(background-color 0.2s ease-out);
+
+		&:hover {
+		  background-color: #434343;
+		}
+	  }
+	}
+  }
+
+  #lang_sel_list {
+
+	ul {
+	  list-style-type: none;
+
+	  li {
+		float: left;
+		margin-right: 10px;
+
+		&:last-child {
+		  margin-right: 0;
+		}
+
+		a {
+		  color: #ccc;
+
+		  &:hover {
+			color: #fff;
+		  }
+		}
+	  }
+	}
+	img {
+	  margin-right: 5px;
+	}
+  }
+}
+
+/* main menu wpml style */
+.qodef-main-menu > ul > li.menu-item-language > a {
+  padding: 0 20px 0 0;
+  line-height: 85px;
+
+  span {
+	display: inline-block;
+	line-height: 18px;
+	vertical-align: middle;
+
+	&:after {
+	  content: '\33';
+	  font-family: 'ElegantIcons';
+	  position: absolute;
+	  right: 3px;
+	  top: 50%;
+	  display: block;
+	  @include qodefTransform(translateY(-50%));
+	}
+  }
+
+  img {
+	display: inline-block !important;
+	margin: 0 5px 0 0;
+  }
+}
+
+.qodef-main-menu {
+
+  .menu-item-language {
+
+	.submenu-languages {
+	  position: absolute;
+	  padding: 10px 0;
+	  @include qodefTransition(opacity 0.2s ease-out);
+	  width: 210px;
+	  left: -1px;
+	  z-index: 10;
+	  opacity: 0;
+	  visibility: hidden;
+	  border-top: none;
+	  text-align: left;
+	  background-color: #fff;
+	  @include qodefBoxSizing(border-box);
+
+	  li {
+		display: block;
+		width: 100%;
+		float: none;
+		padding: 7px 15px;
+		@include qodefBoxSizing(border-box);
+	  }
+
+	  a {
+		font-size: 13px;
+		line-height: 19px;
+		font-weight: 500;
+		margin: 0;
+		padding: 5px 11px;
+		text-decoration: none;
+		font-family: Poppins, sans-serif;
+		color: #747474;
+		@include qodefTransition(color 0.2s ease-out, background-color 0.2s ease-out);
+		display: block;
+
+		&:hover {
+		  color: #fff;
+		  background-color: $first-main-color;
+		}
+
+		img {
+		  display: inline-block !important;
+		  margin: 0 10px 0 0;
+		  vertical-align: middle;
+		}
+	  }
+	}
+
+	&:hover {
+
+	  ul {
+		opacity: 1;
+		visibility: visible;
+		top: 100%;
+		-webkit-transition-delay: 0s;
+		-moz-transition-delay: 0s;
+		transition-delay: 0s;
+	  }
+	}
+  }
+}
+
+.qodef-mobile-nav {
+  .menu-item-language {
+	.iclflag {
+	  margin-right: 10px;
+	}
+  }
+}
+
+/* right from menu wpml style */
+.qodef-right-from-mobile-logo.widget_icl_lang_sel_widget,
+.qodef-right-from-main-menu-widget.widget_icl_lang_sel_widget {
+
+  img {
+	display: inline-block !important;
+	vertical-align: middle;
+  }
+
+
+  //dropdown styles
+  #lang_sel {
+	@extend %wpml-dropdown-styles;
+
+	.lang_sel_sel {
+	  color: #252525;
+	  font-weight: 600;
+	  font-size: 16px;
+	  letter-spacing: -0.5px;
+	  line-height: 85px;
+	  font-family: Poppins, sans-serif;
+	  text-transform: capitalize;
+	  padding-right: 20px;
+	  margin-right: 10px;
+	  vertical-align: middle;
+
+	  span {
+		display: inline-block;
+		line-height: 18px;
+		vertical-align: middle;
+	  }
+
+	  &:after {
+		right: 0;
+	  }
+	}
+
+	ul ul {
+	  background-color: #fff;
+	  border: 0;
+	  border-top: none;
+	  width: 230px;
+	  text-align: left;
+	  color: #747474;
+	  padding: 10px 0;
+	  @include qodefTransition(opacity 0.2s ease-out);
+
+	  li {
+		padding: 7px 15px;
+	  }
+
+	  a {
+		font-size: 13px;
+		line-height: 19px;
+		font-weight: 500;
+		margin: 0;
+		padding: 5px 11px;
+		text-decoration: none;
+		font-family: Poppins, sans-serif;
+		color: #747474;
+		@include qodefTransition(color 0.2s ease-out, background-color 0.2s ease-out);
+
+		&:hover {
+		  color: #fff;
+		  background-color: $first-main-color;
+		}
+	  }
+
+	  img {
+		margin: 0 5px 0 0;
+	  }
+	}
+	&:hover {
+	  ul ul {
+		opacity: 1;
+	  }
+	}
+  }
+
+  //list styles
+  #lang_sel_list {
+
+	ul li {
+	  padding: 5px 0;
+	}
+  }
+
+  .lang_sel_list_horizontal {
+
+	ul li {
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin: 0 15px 5px 0;
+
+	  &:last-child {
+		margin: 0 0 5px;
+	  }
+	}
+  }
+}
+/* ==========================================================================
+   WPML style end
+   ========================================================================== */

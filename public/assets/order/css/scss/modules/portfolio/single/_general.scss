@@ -1,0 +1,136 @@
+@import 'small-images';
+@import 'small-slider';
+@import 'big-images';
+@import 'big-slider';
+@import 'gallery';
+
+.qodef-portfolio-single-holder {
+    .qodef-portfolio-info-item {
+        margin-bottom: 14px;
+        display:inline-block;
+        width:100%;
+        vertical-align:middle;
+
+        h6{
+            float:left;
+            margin:0 7px 0 0;
+        }
+        p{
+            float:left;
+            margin:0;
+            line-height:1.6em;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .qodef-portfolio-social{
+        display:inline-block;
+        width:100%;
+        vertical-align:middle;
+
+        h6{
+            float:left;
+            margin:0 7px 0 0;
+        }
+
+        .qodef-social-share-holder{
+            float:left;
+            margin:0;
+
+            ul{
+                margin:0;
+
+                li a{
+                    font-size:15px;
+                    color: #c8c8c8;
+
+                    &:hover{
+                        color: $first-main-color;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .qodef-portfolio-content{
+        margin: 20px 0 40px 0;
+    }
+
+    .qodef-portfolio-single-nav {
+        $nav-height : 33px;
+        height: $nav-height;
+        line-height: $nav-height;
+        text-align: center;
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        span {
+            color: #565656;
+            line-height: $nav-height;
+            font-size: 20px;
+
+            @include qodefTransition(color 0.15s ease-in-out);
+
+            &:hover{
+                color: $first-main-color;
+            }
+        }
+
+        .qodef-portfolio-back-btn {
+            display: inline-block;
+        }
+
+        .qodef-portfolio-next,
+        .qodef-portfolio-prev,
+        .qodef-portfolio-back-btn {
+            height: $nav-height;
+        }
+
+        .qodef-portfolio-next,
+        .qodef-portfolio-prev {
+            position: absolute;
+            top: 0;
+        }
+
+        .qodef-portfolio-prev {
+            left: 0;
+        }
+
+        .qodef-portfolio-next {
+            right: 0;
+        }
+    }
+
+    .qodef-portfolio-video-lightbox {
+        position: relative;
+        display: block;
+
+        img {
+            vertical-align: middle;
+        }
+    }
+
+    .qodef-portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+
+        .qodef-portfolio-play-icon {
+            position: absolute;
+            font-size: 20px;
+            left: 50%;
+            top: 50%;
+
+            @include qodefTransform(translate(-50%, -50%));
+        }
+    }
+}

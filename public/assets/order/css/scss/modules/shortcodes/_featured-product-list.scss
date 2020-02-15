@@ -1,0 +1,66 @@
+/* ==========================================================================
+   featured product list style start
+   ========================================================================== */
+   
+.qodef-featured-products{
+
+	list-style:none;
+	margin:0;
+	padding:0;
+	
+	.qodef-product{
+		display:inline-block;
+		width:100%;
+		vertical-align:middle;
+		margin: 0 0 17px 0;
+		
+		.qodef-product-featured-image-holder{
+			float:left;
+			margin: 0 15px 0 0;
+			
+			a{
+				display:inline-block;
+				vertical-align:middle;
+				max-width:60px;
+			}
+			
+			img{
+				display:block;
+			}
+		}
+		
+		.qodef-product-featured-info{
+			float:left;
+			
+			h6{
+				@include qodefTransition(color 0.2s ease-out);
+			}
+			h6:hover{
+				color: $first-main-color;
+			}
+		}
+		
+		.qodef-product-list-categories{
+			line-height:1.2em;
+			
+			a{
+				color: #888787;
+				line-height:1.2em;
+				font-size:12px;
+				font-family: 'Poppins', sans-serif;
+				font-weight: 400;
+				@include qodefTransition(color 0.2s ease-out);
+				
+				&:hover{
+					color: $first-main-color;
+				}
+			}
+		}
+	}
+}   
+   
+   
+   
+/* ==========================================================================
+featured product list style end
+========================================================================== */

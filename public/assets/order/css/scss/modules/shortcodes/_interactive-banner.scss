@@ -1,0 +1,207 @@
+/* ==========================================================================
+# Interactive Banner style - begin
+========================================================================== */
+
+.qodef-interactive-banner{
+
+	position:relative;
+	overflow:hidden;
+
+	.qodef-banner-image{
+		display: table;
+		height: 100%;
+		width: 100%;
+		table-layout: fixed;
+
+		a{
+			display:block;
+			position: relative;
+			overflow: hidden;
+		}
+
+		img{
+			display: table-cell;
+			vertical-align: middle;
+			z-index: 10;
+			-webkit-transition: all .25s ease-out;
+			transition: all .25s ease-out;
+		}
+	}
+
+	.qodef-text-holder{
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+		z-index: 30;
+
+		.qodef-banner-table{
+			display:table;
+			max-width: 80%;
+	    	margin: auto;
+			height:100%;
+
+			.qodef-banner-cell{
+				display:table-cell;
+				width:100%;
+				height:100%;
+				vertical-align:middle;
+				text-align:center;
+
+				a{
+					display:inline-block;
+					vertical-align:middle;
+				}
+			}
+		}
+
+		.qodef-banner-title-holder{
+			opacity:0;
+			@include qodefTransform(scale(.5) translateZ(0));
+			-webkit-transition: -webkit-transform .0s .2s, opacity .2s ease-out;
+			transition: transform .0s .2s, opacity .2s ease-out;
+		}
+
+		.qodef-banner-title{
+			color: #fff;
+			z-index: 9;
+			position:relative;
+			padding:12px 45px;
+			font-size:20px;
+			line-height:30px;
+			display:inline-block;
+			vertical-align:middle;
+			letter-spacing:-0.4px;
+			font-family: 'Poppins', sans-serif;
+			background-color: rgba(12, 195, 206, 0.8);
+			font-weight:600;
+		}
+
+	  	.qodef-banner-title a {
+		  color: inherit;
+		}
+	}
+
+	.qodef-banner-overlay{
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+	}
+
+	&.qodef-fade-hover {
+		.qodef-text-holder{
+			background-color: rgba(255,255,255,.65);
+			opacity: 0;
+			@include qodefTransition(opacity .2s ease);
+		}
+
+		&:hover{
+
+			.qodef-text-holder{
+				@include qodefTransition(opacity .7s ease);
+				opacity: 1;
+			}
+
+			.qodef-banner-title-holder{
+				opacity: 1;
+				@include qodefTransform(scale(1));
+				-webkit-transition: opacity 0.3s ease-in-out, -webkit-transform .55s cubic-bezier(0.46, 0.81, 0.07, 0.96);
+				transition: opacity 0.3s ease-in-out, transform .55s cubic-bezier(0.46, 0.81, 0.07, 0.96);
+			}
+
+			img{
+				-webkit-filter: grayscale(100%);
+				-moz-filter: grayscale(100%);
+				-ms-filter: grayscale(100%);
+				-o-filter: grayscale(100%);
+				filter: grayscale(100%);
+				filter: gray;
+				filter: url(img/desaturate.svg#grayscale);
+				@include qodefTransition(all 1.2s cubic-bezier(0.26, 0.63, 0, 0.96));
+			}
+		}
+	}
+
+	&.qodef-image-zoom-hover {
+		.qodef-text-holder .qodef-banner-table {
+	    	text-align: left;
+		}
+
+		.qodef-banner-title-holder{
+			opacity: 1;
+			@include qodefTransform(scale(1));
+			
+			.qodef-banner-title{
+            	background-color: rgba(0,0,0,.45);
+			}
+		}
+
+		&:hover{
+			img{
+				@include qodefTransition(all 1.2s cubic-bezier(0.26, 0.63, 0, 0.96));
+				@include qodefTransform(scale(1.05));			
+			}
+		}
+	}
+
+
+	&.qodef-diagonal-hover {
+		.qodef-banner-title-holder{
+			@include qodefTransform(scale(1));
+			.qodef-banner-title{
+            	background-color: transparent;
+			}
+		}
+		.qodef-banner-image {
+			~ a {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 200;
+			}
+
+			&:after {
+				content:'';
+				position: absolute;
+				top: -50%;
+				left: -50%;
+				height: 200%;
+				width: 200%;
+				z-index: 100;
+				@include qodefTransform(rotate(-45deg) translate(0, 100%));
+				background-color: rgba(0,0,0,.45);
+				opacity: 0;
+				-webkit-transition:opacity .2s ease, -webkit-transform 0s ease .2s;
+				transition:opacity .2s ease, transform 0s ease .2s;
+			}
+		}
+		&:hover{
+			.qodef-banner-image {
+				&:after {
+				    @include qodefTransform(rotate(-45deg));
+				    opacity: 1;
+				    -webkit-transition: opacity .5s ease, -webkit-transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+				    transition: opacity .5s ease, transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+				}
+			}
+			.qodef-banner-title-holder {
+				opacity: 1;
+				-webkit-transition: opacity 0.6s ease .2s;
+				transition: opacity 0.6s ease .2s;
+			}
+		}
+	}
+
+}
+
+
+
+/* ==========================================================================
+# Interactive Banner style - end
+========================================================================== */

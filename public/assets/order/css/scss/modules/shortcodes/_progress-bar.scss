@@ -1,0 +1,122 @@
+
+/* ==========================================================================
+   Progress bar shortcode start styles
+   ========================================================================== */
+.qodef-progress-bar{
+    position: relative;
+    margin: 0 0 10px;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    padding-right: 24px;
+    
+    .qodef-progress-title-holder{
+        position: relative;
+        margin: 12px 0 5px;
+        
+        .qodef-progress-title{
+            display: inline-block;
+            z-index: 100;
+            font-size: 13px;
+            letter-spacing: -0.2px;
+        }
+    }    
+    .qodef-progress-number-wrapper  {
+        text-align: right;
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        opacity: 0;
+        color: #fff;
+        bottom: 0;
+        
+        .qodef-progress-number {
+            font-size: 11px;
+            font-weight: 600;
+            font-family: Poppins, sans-serif;
+            letter-spacing: -0.2px;
+            @include qodefBorderRadius(3px);
+            color: #fff;
+            display: inline-block;
+            text-align: center;
+            float: right;
+            height: 27px;
+            line-height: 28px;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .qodef-progress-number .qodef-percent:after{
+            content: '%';
+            margin-left: 0.1em;
+            font-size: 1em;
+        }
+        
+    }
+    .qodef-progress-number-wrapper.qodef-floating{
+        width: 100%;
+        height: 100%;
+        
+        .qodef-progress-number{
+            position:absolute;
+            @include qodefTransform(translateX(-50%));
+            bottom: 0;
+        }
+        .qodef-down-arrow{
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid #c0c0c0;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            @include qodefTransform(translateX(-50%));
+        }
+        
+    }
+    .qodef-progress-number-wrapper.qodef-floating-outside .qodef-progress-number{
+        background-color: #c0c0c0;
+        bottom: 8px;
+    }    
+    
+    .qodef-progress-number-wrapper.qodef-floating-inside .qodef-progress-number{
+        @include qodefTransform(translateX(-100%));
+        height: 12px;
+        line-height: 12px;
+        font-size: 10px;
+        
+        
+        .qodef-percent{
+            display: inline-block;
+            line-height: 18px;
+        }
+    }
+    .qodef-progress-number-wrapper.qodef-static {
+        width: 100%;
+        margin-left: 0;
+        .qodef-progress-number {
+            color: #101010;
+            font-size: 14px;
+        }
+    }
+    
+    .qodef-progress-content-outer{
+        background-color: #e9e9e9;
+        position: relative;
+        overflow: hidden;
+        height: 12px;
+        
+        .qodef-progress-content{
+            max-width: 100%;
+            overflow: hidden;
+            background-color: $first-main-color;
+            height: 12px;
+            border: 1px solid transparent;
+            box-sizing: border-box;
+        }
+    }
+}
+/* ==========================================================================
+   Progress bar shortcode end styles
+   ========================================================================== */

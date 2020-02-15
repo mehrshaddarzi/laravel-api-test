@@ -1,0 +1,215 @@
+/* ==========================================================================
+# Pop-up style - begin
+========================================================================== */
+%popup-input-style {
+  font-size: 13px;
+  @include qodefBoxSizing(border-box);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  vertical-align: top;
+  height: 40px;
+  line-height: 40px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #ffffff;
+
+  &:focus{
+
+    &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color: #fff;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: #fff;
+      opacity: 1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: #fff;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #fff;
+      line-height: normal;
+    }
+  }
+  &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #fff;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+    opacity: 1;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+    line-height: normal;
+  }
+}
+
+/* Popup opener style - start */
+
+/* Style for header top */
+.qodef-top-bar {
+  .qodef-popup-opener {
+
+    color: #b2b2b2;
+    &:hover {
+      color: #fff;
+    }
+
+    .qodef-popup-opener-icon {
+      font-size: 14px;
+      margin: 0 9px 0 18px;
+    }
+  }
+}
+
+/* Popup opener style - end */
+
+.qodef-popup-holder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition:opacity .2s ease-out .1s, visibility .0s .4s;
+  transition:opacity .2s ease-out .1s, visibility .0s .4s;
+  z-index: 115;
+  visibility: hidden;
+
+  .qodef-popup-close-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .qodef-popup-shader {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 110%;
+    height: 130%;
+    z-index: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform-style: flat;
+    transform-style: flat;
+    backface-visibility: hidden;
+    background-color: rgba(14, 14, 14, 0.35);
+  }
+
+  .qodef-popup-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 9;
+  }
+
+  .qodef-popup-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .qodef-popup-inner {
+    display: inline-block;
+    width: 600px;
+    background-color: #e1e1e1;
+    padding: 17px;
+    box-sizing: border-box;
+    @include qodefTransform(scale(.6));
+    opacity: 0;
+    -webkit-transition: -webkit-transform .2s ease, opacity .3s ease;
+    transition:transform .2s ease, opacity .3s ease;
+  }
+
+  .qodef-popup-top {
+    background-color: #fff;
+    position: relative;
+    padding: 36px 50px 53px;
+    .qodef-popup-close {
+      display: inline-block;
+      font-size: 30px;
+      color: #101010;
+      position: absolute;
+      right: 10px;
+      top: 8px;
+    }
+    .qodef-popup-title {
+      margin-bottom: 20px;
+    }
+  }
+
+  .qodef-popup-bottom {
+    background-color: $first-main-color;
+    padding: 35px 0 25px;
+    .wpcf7 {
+      position: relative;
+      width: 250px;
+      display: block;
+      margin: 0 auto;
+
+      .qodef-single-field-form {
+        input.wpcf7-form-control.wpcf7-submit {
+          font-family: ElegantIcons;
+          font-size: 16px;
+          color: #dedede;
+          padding: 0 8px;
+          height: 40px;
+          line-height: 36px;
+          display: inline-block;
+          width: 40px;
+          vertical-align: top;
+          background-color: transparent;
+          border: 1px solid #fff;
+          position: absolute;
+          right: 0;
+          top: 0;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .wpcf7-form-control{
+      &.wpcf7-text,
+      &.wpcf7-number,
+      &.wpcf7-date,
+      &.wpcf7-textarea,
+      &.wpcf7-select,
+      &.wpcf7-quiz{
+        @extend %popup-input-style;
+      }
+    }
+  }
+}
+
+/* Popup open/close style */
+
+.qodef-popup-opened {
+  .qodef-popup-holder {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition:opacity .3s ease;
+    transition:opacity .3s ease;
+    .qodef-popup-inner {
+      opacity: 1;
+      @include qodefTransform(scale(1));
+      -webkit-transition: -webkit-transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+      transition:transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+    }
+  }
+}
+
+/* ==========================================================================
+# Pop-up style - end
+========================================================================== */

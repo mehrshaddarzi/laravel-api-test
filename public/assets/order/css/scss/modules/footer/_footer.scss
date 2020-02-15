@@ -1,0 +1,382 @@
+/* ==========================================================================
+# Footer style - begin
+========================================================================== */
+
+footer {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	z-index: 100;
+	position: relative;
+	@include qodefBoxSizing(border-box);
+
+	.qodef-footer-inner {
+		position: relative; /* for triangle back to top and ajax transitions */
+	}
+
+	.qodef-container {
+		background-color: inherit;
+	}
+
+	.qodef-container-inner {
+		position: relative;
+	}
+
+	.qodef-container-inner > .widget{
+		text-align: center;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.qodef-footer-ingrid-border-holder-outer {
+		background-color: #191919;
+	}
+
+	.qodef-footer-top-border-holder,
+	.qodef-footer-bottom-border-holder {
+		position: relative;
+		display: block;
+		width: 100%;
+	}
+
+	.qodef-footer-top-border-holder.qodef-in-grid,
+	.qodef-footer-bottom-border-holder.qodef-in-grid {
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+	.qodef-footer-top-holder {
+		display: block;
+		background-color: #191919;
+		position:relative;
+		background-position:center center;
+		background-size: cover;
+	  	color: #fff;
+
+	    a {
+		  color: #a4a4a4;
+		  &:hover {
+			color: $first-main-color;
+		  }
+		}
+	}
+
+	.qodef-footer-top:not(.qodef-footer-top-full) .qodef-container-inner {
+		padding: 80px 0 70px;
+	}
+
+	.qodef-footer-top.qodef-footer-top-full {
+		padding: 70px 80px 30px 80px;
+	}
+	
+	.qodef-footer-top.qodef-footer-top-aligment-center {
+		text-align: center;
+	}
+	.qodef-footer-top.qodef-footer-top-aligment-left {
+		text-align: left;
+	}
+	.qodef-footer-top.qodef-footer-top-aligment-right {
+		text-align: right;
+	}
+
+  .qodef-footer-bottom-holder {
+	display: table;
+	width: 100%;
+	background-color: #3b3b3b;
+	vertical-align: middle;
+	text-align: center;
+	height: 78px;
+	color: #fff;
+
+	.qodef-footer-bottom-holder-inner {
+	  display: table-cell;
+	  vertical-align: middle;
+	}
+
+	.qodef-column-inner {
+	  text-align: center;
+	  vertical-align: middle;
+	}
+
+	.qodef-three-columns .qodef-column:first-child .qodef-column-inner {
+	  text-align: left;
+	}
+
+	.qodef-three-columns .qodef-column:last-child .qodef-column-inner {
+	  text-align: right;
+	}
+
+	.qodef-two-columns-50-50 .qodef-column:first-child .qodef-column-inner {
+	  text-align: left;
+	}
+
+	.qodef-two-columns-50-50 .qodef-column:last-child .qodef-column-inner {
+	  text-align: right;
+	}
+
+	.qodef-footer-bottom-border-bottom-holder {
+	  clear: both;
+	}
+
+  }
+
+}
+
+/* Footer uncover - begin
+========================================================================== */
+
+footer.qodef-footer-uncover {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	@include qodefTransition(left 0.33s cubic-bezier(0.694, 0.0482, 0.335, 1));
+	-webkit-backface-visibility: hidden;
+
+	.cf7_custom_style_2 input.wpcf7-form-control.wpcf7-text,
+	.cf7_custom_style_2 input.wpcf7-form-control.wpcf7-number,
+	.cf7_custom_style_2 input.wpcf7-form-control.wpcf7-date,
+	.cf7_custom_style_2 textarea.wpcf7-form-control.wpcf7-textarea,
+	.cf7_custom_style_2 select.wpcf7-form-control.wpcf7-select,
+	.cf7_custom_style_2 input.wpcf7-form-control.wpcf7-quiz {
+		transform: none;
+	}
+
+}
+
+.qodef-right-side-menu-opened footer.qodef-footer-uncover {
+	left: -270px;
+}
+
+/* Footer uncover - end
+========================================================================== */
+
+/* Footer boxed - begin
+========================================================================== */
+
+.boxed footer {
+	width: 100% !important;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+}
+
+/* Footer boxed - end
+========================================================================== */
+
+/* Footer disabled - begin
+========================================================================== */
+
+footer.qodef-disable-footer {
+	display: none;
+}
+
+/* Footer disabled - end
+========================================================================== */
+
+
+/* ==========================================================================
+# Footer style - end
+========================================================================== */
+
+/* ==========================================================================
+# Footer widgets - begin
+========================================================================== */
+
+footer .widget {
+	margin-bottom: 20px;
+
+	.qodef-footer-widget-title,
+	.qodef-latest-posts-widget-title{
+		color: #ffffff;
+		margin-bottom: 16px;
+		font-family: Poppins, sans-serif;
+		font-weight: 500;
+		letter-spacing: -0.2px;
+	}
+
+	ul {
+		list-style: none;
+	  	margin: 0;
+	}
+
+	select,
+	input[type="text"] {
+		width: 100%;
+		overflow: hidden;
+		border: 1px solid #e9e9e9;
+		background-color: #f6f6f5;
+		padding: 0 10px;
+		height: 35px;
+		outline: none;
+		color: #7f8385;
+		font-family: inherit;
+		@include qodefBoxSizing(border-box);
+	}
+
+	.tagcloud {
+	  line-height: 0;
+	}
+
+	.tagcloud a {
+	  text-transform: capitalize;
+	  position: relative;
+	  letter-spacing: 0;
+	  font-size: 13px !important;
+	  line-height: 24px;
+	}
+
+	.tagcloud a:after {
+	  content: ',';
+	}
+
+	.tagcloud a:last-child:after {
+	  content:'';
+	}
+
+  	.woocommerce-product-search,
+	#searchform {
+
+	  width: 100%;
+	  @include qodefBoxSizing(border-box);
+	  display: inline-block;
+	  background-color: transparent;
+	  vertical-align: middle;
+	  border: 1px solid #d9d9d9;
+	  position: relative;
+	  overflow: visible;
+
+	  label {
+		display: none;
+	  }
+
+	  input[type="search"],
+	  input[type="text"] {
+		display: inline-block;
+		text-decoration: none;
+		border: 0;
+		outline: 0;
+		color: #fff;
+		background-color: transparent;
+		font-family: inherit;
+		margin: 0;
+		padding: 0 54px 0 16px;
+		width: 100%;
+		height: 40px;
+		float: left;
+		@include qodefBoxSizing(border-box);
+
+		&:focus{
+
+		  &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			color: #fff;
+		  }
+		  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			color: #fff;
+			opacity: 1;
+		  }
+		  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: #fff;
+			opacity: 1;
+		  }
+		  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: #fff;
+		  }
+		}
+
+		&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		  color: #a4a4a4;
+		}
+		&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		  color: #a4a4a4;
+		  opacity: 1;
+		}
+		&::-moz-placeholder { /* Mozilla Firefox 19+ */
+		  color: #a4a4a4;
+		  opacity: 1;
+		}
+		&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		  color: #a4a4a4;
+		}
+	  }
+
+	  input[type="submit"] {
+		width: 42px;
+		height: 42px;
+		line-height: 40px;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		outline: 0;
+		border: 0;
+		box-sizing: initial;
+		text-decoration: none;
+		color: #fff;
+		font-family: 'ElegantIcons',sans-serif;
+		font-weight: normal;
+		cursor: pointer;
+		white-space: nowrap;
+		float: right;
+		@include qodefTransition(color 0.2s ease-out, background-color 0.2s ease-out);
+		font-size: 13px;
+		background-color: transparent;
+		text-align: center;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+
+		&:hover {
+		  background-color: $first-main-color;
+		  color: #fff;
+		}
+	  }
+	}
+  &.qodef-latest-posts-widget {
+
+	.qodef-latest-posts-widget-title {
+	  margin-bottom: 15px;
+	}
+	.qodef-blog-list-holder {
+		.qodef-item-info-section > div {
+	  	    display:inline-block;
+	  	    backface-visibility:hidden;
+	  	}
+	  &.qodef-image-in-box {
+		> ul > li:not(:first-child) {
+		  padding: 19px 0 0 0;
+		}
+		.qodef-item-title {
+		  font-size: 15px;
+		}
+		.qodef-item-info-section {
+		  font-size: 13px;
+		}
+		.qodef-item-text-holder {
+		  padding: 0;
+		}
+		.qodef-item-image {
+		  display: none;
+		}
+		.qodef-item-title a{
+		  color: #fff;
+		}
+	  }
+	}
+  }
+}
+
+footer .qodef-footer-bottom-holder .widget {
+
+  margin-bottom: 0;
+
+  .qodef-footer-widget-title {
+	color: #7f8385;
+  }
+
+}
+
+/* ==========================================================================
+# Footer widgets - end
+========================================================================== */
+

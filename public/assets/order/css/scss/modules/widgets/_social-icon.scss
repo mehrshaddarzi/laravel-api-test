@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Social Icon widget start styles
+   ========================================================================== */
+
+.qodef-social-icon-widget-holder {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+
+    .qodef-social-icon-widget {
+        color: inherit;
+        line-height: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+    }
+
+    .qodef-top-bar & ,
+    footer & {
+        color: #fff;
+    }
+}
+/* ==========================================================================
+   Social Icon widget end styles
+   ========================================================================== */

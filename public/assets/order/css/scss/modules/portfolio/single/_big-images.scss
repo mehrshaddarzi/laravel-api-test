@@ -1,0 +1,27 @@
+/* ==========================================================================
+# Portfolio Single Big Images - begin
+========================================================================== */
+
+.big-images {
+
+	.qodef-big-image-holder {
+		margin-bottom: 34px;
+	}
+
+	.qodef-portfolio-info-holder{
+		padding:23px 0 0 0;
+	}
+
+	.qodef-portfolio-media .qodef-portfolio-single-media {
+		margin-bottom: 25px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+}
+
+/* ==========================================================================
+# Portfolio Single Big Images - end
+========================================================================== */

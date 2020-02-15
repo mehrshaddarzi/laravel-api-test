@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Shop masonry start style
+   ========================================================================== */
+.qodef-shop-masonry {
+  .products {
+    list-style: none;
+  }
+
+  .qodef-btn.added {
+    display: none;
+  }
+
+  .qodef-masonry-product-image-holder{
+    overflow:hidden;
+  }
+
+  img{
+    vertical-align: middle;
+  }
+
+  .qodef-shop-product{
+    padding:15px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+
+  .qodef-shop-list-masonry-grid-sizer,
+  .qodef-shop-product {
+    width:25%;
+  }
+
+  .qodef-masonry-product-inner{
+    max-height:100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing:border-box;
+    position:relative;
+  }
+
+  .qodef-large-width-masonry-item,
+  .qodef-large-width-height-masonry-item{
+    width:50%;
+  }
+
+  .qodef-shop-filter-holder ul {
+      list-style-type: none;
+      margin:15px 15px 0 15px;
+
+      li {
+          display: inline-block;
+          margin-left: 22px;
+          cursor: pointer;
+          color: #252525;
+          line-height: 40px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing:-0.5px;
+
+      }
+      li:first-child {
+          margin-left: 0;
+      }
+  }
+
+  .qodef-shop-product {
+
+
+      .qodef-masonry-product-meta-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+           z-index:2;
+      }
+
+
+        .qodef-masonry-product-shader {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,.45);
+            opacity: 0;
+           -webkit-transition: opacity 0.3s ease-out;
+            transition: opacity 0.3s ease-out;
+        }
+
+        &.qodef-large-width-masonry-item .qodef-masonry-product-shader {
+            position: absolute;
+        }
+
+
+      .qodef-masonry-product-table{
+          display:table;
+          vertical-align:middle;
+          width:100%;
+          height:100%;
+          top: 60px;
+          -webkit-transition: opacity 0.2s ease-out, top 0s ease-out .2s;
+          transition: opacity 0.2s ease-out, top 0s ease-out .2s;
+          opacity:0;
+          z-index:9;
+          position:relative;
+      }
+
+      .qodef-masonry-product-cell{
+          display:table-cell;
+          vertical-align:middle;
+          width:100%;
+          height:100%;
+          text-align:center;
+          >div {
+            position: relative;
+            z-index: 20;
+          }
+          .qodef-masonry-product-overlay-link {
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 10;
+          }
+      }
+
+      p.out-of-stock {
+          display: none;
+      }
+
+
+      .qodef-onsale,
+      .qodef-out-of-stock-button{
+          position: absolute;
+          display: table;
+          top: 28px;
+          right: -38px;
+          width: 150px;
+          height: 28px;
+          text-align: center;
+          color: #fff;
+          background-color: $first-main-color;
+          text-transform: uppercase;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          letter-spacing: -0.2px;
+          font-weight: 600;
+          @include qodefTransform(rotate(45deg));
+           z-index:1;
+      }
+
+      .qodef-out-of-stock-button {
+          background-color: #101010;
+          font-size: 11px;
+      }
+
+      .qodef-onsale-inner,
+      .qodef-out-of-stock-button-inner{
+           display: table-cell;
+           vertical-align: middle;
+      }
+
+
+      .qodef-masonry-product-overlay-outer {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+
+      .qodef-masonry-product-info {
+
+      }
+
+      .qodef-product-list-product-title {
+          color: #fff;
+      }
+
+      .qodef-product-list-categories{
+          color: #fff;
+          font-size:15px;
+          line-height:27px;
+          font-family: 'Open Sans', sans-serif;
+              a{
+                  color: #fff;
+                  &:hover{
+                    color: #fff;
+                  }
+              }
+      }
+
+      .price {
+          color: #fff;
+          font-size:15px;
+          font-weight:500;
+          line-height:29px;
+          margin: 2px 0 0 0;
+          display:inline-block;
+          vertical-align:middle;
+          width:100%;
+          letter-spacing:-0.5px;
+          font-family: Poppins, sans-serif;
+
+          ins{
+              text-decoration: none;
+          }
+      }
+
+      .qodef-masonry-product-button{
+          padding-top:75px;
+		  
+		  .qodef-btn i, 
+		  .qodef-btn span:not(.qodef-btn-text){
+				display:none;
+		  }
+		  
+		  .qodef-btn,
+		  .added_to_cart{
+			padding: 0 35px;
+		  }
+
+      .added_to_cart {
+        margin-bottom: 9px;
+      }
+		  
+		  .qodef-btn .qodef-btn-text{
+			border-right:none;
+			padding:0;
+		  }
+		  
+		  .added_to_cart:after{
+			display:none;
+		  }
+      }
+
+    }
+
+    &:hover {
+        .qodef-masonry-product-shader{
+          opacity: 1;
+          -webkit-transition: opacity 0.5s ease-out;
+          transition: opacity 0.5s ease-out;
+        }
+
+
+        .qodef-masonry-product-table{
+          opacity: 1;
+          top: 0;
+          @include qodefTransition(top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .4s  cubic-bezier(0.25, 0.46, 0.45, 0.94));
+        }
+    }
+  }
+}
+
+.qodef-shop-list-masonry{
+    opacity:0;
+}
+
+
+.page-template-default .qodef-shop-masonry .qodef-shop-product .qodef-masonry-product-overlay-outer .qodef-masonry-product-button,
+.qodef-grid-section .qodef-shop-masonry .qodef-shop-product .qodef-masonry-product-overlay-outer .qodef-masonry-product-button{
+    padding-top:25px;
+}
+
+.page-template-default .qodef-shop-masonry .qodef-shop-list-masonry,
+.qodef-grid-section .qodef-shop-masonry .qodef-shop-list-masonry{
+  margin: 0 -15px;
+  width: calc(100% + 30px);
+}
+
+
+
+/* ==========================================================================
+   Shop masonry end style
+   ========================================================================== */

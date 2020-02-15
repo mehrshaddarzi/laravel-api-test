@@ -1,0 +1,1117 @@
+{
+	"info": {
+		"_postman_id": "941f47b2-e4dd-40cc-b5a4-415dd0bd84eb",
+		"name": "Absentus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "sghazi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin2020",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/me/details?first_name=Mehrshad&company_name=Microsoft",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"me",
+								"details"
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Mehrshad"
+								},
+								{
+									"key": "company_name",
+									"value": "Microsoft"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service Type",
+			"item": [
+				{
+					"name": "Service Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/service_type?include=service",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_type"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "service"
+								}
+							]
+						},
+						"description": "### Pagination\n\n?page=x\n\n?per_page=x\n\n### Filter\n\n?filter[name]=Gravestone\n\n?filter[id]=4\n\n?filter[user_id]=1\n\n### Sorting\n\nDESC  ?sort=-id\n\nASC   ?sort=id [Default]\n\n### Include\n\n?include=service"
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Service Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new service name 20",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/mehrshad.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/service_type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_type"
+							]
+						},
+						"description": "## Parameters\n\n---\n\n##### name [string] [required]\n##### description [string]\n##### icon [File]\n##### coverphoto [File]\n\n\n\n\n## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Service Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Service 500",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description jadid",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/summit-2019.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/service_type/19",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_type",
+								"19"
+							]
+						},
+						"description": "## Parameters\n\n---\n\n##### name [string] [required]\n##### description [string]\n##### icon [File]\n##### coverphoto [File]\n\n\n\n\n## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/service_type/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_type",
+								"2"
+							]
+						},
+						"description": "## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14e1ec05-8c3a-4f83-be8b-b21530bf891a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ec4b98b-d6e3-44dd-b611-16443c92240a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service List",
+			"item": [
+				{
+					"name": "Service List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/service?includes=user,service_item",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service"
+							],
+							"query": [
+								{
+									"key": "includes",
+									"value": "user,service_item"
+								}
+							]
+						},
+						"description": "### Pagination\n\n?page=x\n\n?per_page=x\n\n### Filter\n\n?filter[name]=Gravestone\n\n?filter[id]=4\n\n?filter[servicetype_id]=1\n\n?filter[is_active]=1 or 0\n\n?filter[user]=1\n\n\n\n### Sorting\n\nDESC  ?sort=-id\n\nASC   ?sort=id [Default]\n\n\n### Includes\n\nUser ?includes=user\n\nServiceItem ?includes=service_item\n\n=> For Multiple Includes use , for example: ?includes=user,service_item"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List Active Services By User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/3/service",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"3",
+								"service"
+							]
+						},
+						"description": "3 => user_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List Of User that have this Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/service/1/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"1",
+								"user"
+							]
+						},
+						"description": "1 => service_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Active Custom Service Id for User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/service/1/user/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"1",
+								"user",
+								"3"
+							]
+						},
+						"description": "1 => service_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Attach Service ID to User ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "service_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/user/service/attach",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"service",
+								"attach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detach Service ID from User ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "service_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/user/service/detach",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"service",
+								"detach"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "servicetype_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Service Name",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/mehrshad.jpg"
+								},
+								{
+									"key": "avg_price",
+									"value": "1520 $ -150 $",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "My Description List",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/service",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "## Parameters\n\n---\n\n##### name [string] [required]\n##### description [string]\n##### icon [File]\n##### coverphoto [File]\n\n\n\n\n## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Service 500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "description jadid",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/summit-2019.jpeg",
+									"disabled": true
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/service/61",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"61"
+							]
+						},
+						"description": "## Parameters\n\n---\n\nAll Parameter in Add New API\n\n\n## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/service/21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"21"
+							]
+						},
+						"description": "## Auth\n\n---\n\nAdmin Role User"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14e1ec05-8c3a-4f83-be8b-b21530bf891a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ec4b98b-d6e3-44dd-b611-16443c92240a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service Item",
+			"item": [
+				{
+					"name": "Add Service Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "service_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Service item name",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "period",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "excerpt",
+									"value": "excerpt lorem",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/service_item",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_item"
+							]
+						},
+						"description": "## Parameters\n\n- service_id\n- user_id\n- name\n- is_active\n- period\n- excerpt\n- description\n- price\n\n\n## Auth User Role\n\n- Admin\n- Company....."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Service Item List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/service_item?filter[user_id]=3&filter[id]=4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_item"
+							],
+							"query": [
+								{
+									"key": "filter[user_id]",
+									"value": "3"
+								},
+								{
+									"key": "filter[id]",
+									"value": "4"
+								}
+							]
+						},
+						"description": "### Pagination\n\n?page=x\n\n?per_page=x\n\n### Filter\n\n?filter[id]\n\n?filter[service_id]\n\n?filter[user_id]\n\n?filter[name]\n\n?filter[is_active]\n\n?filter[period]\n\n?filter[price]\n\n### Sorting\n\nDESC  ?sort=-id\n\nASC   ?sort=id [Default]\n\n#### Sort Parameters\n\n- id\n- price\n- is_active\n- period"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Service Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/service_item/6?name=New Name&description=New Desc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_item",
+								"6"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "New Name"
+								},
+								{
+									"key": "description",
+									"value": "New Desc"
+								}
+							]
+						},
+						"description": "## Parameters\n\n- service_id\n- user_id\n- name\n- is_active\n- period\n- excerpt\n- description\n- price\n\n\n## Auth User Role\n\n- Admin\n- Company....."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Service item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/service_item/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"service_item",
+								"4"
+							]
+						},
+						"description": "## Auth Role\n\n- Admin\n- Company ..."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Region",
+			"item": [
+				{
+					"name": "Add Region",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Region New",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "long",
+									"value": "3365",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/big-image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/region",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"region"
+							]
+						},
+						"description": "## Parameters\n\n- name\n- lat\n- long\n- address\n- photo [File]\n\n## Auth User Role\n\n- Admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List Region",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/region?includes=city,cemetery",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"region"
+							],
+							"query": [
+								{
+									"key": "includes",
+									"value": "city,cemetery"
+								}
+							]
+						},
+						"description": "### Pagination\n\n?page=x\n\n?per_page=x\n\n### Filter\n\n?filter[id]\n\n?filter[name]\n\n### Sorting\n\nDESC  ?sort=-id\n\nASC   ?sort=id [Default]\n\n#### Sort Parameters\n\n- id\n\n### Includes\n\n- city\n- cemetery\n\n?includes=city,cemetery"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Region",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "ali",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/AvvalStock/Desktop/032659.JPG"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/region/25",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"region",
+								"25"
+							]
+						},
+						"description": "## Parameters\n\n- name\n- lat\n- long\n- address\n- photo [File]\n\n## Auth User Role\n\n- Admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Region",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/region/23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"region",
+								"23"
+							]
+						},
+						"description": "## Auth Role\n\n- Admin"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbabbe47-b35b-41ce-82aa-8bd3424a9af0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a2c87e2-c6ec-4d19-a9fe-f1d301347f20",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

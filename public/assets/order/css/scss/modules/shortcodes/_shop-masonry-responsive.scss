@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Shop masonry responsive start style
+   ========================================================================== */
+
+.qodef-shop-masonry {
+
+  .qodef-shop-list-masonry-grid-sizer,
+  .qodef-shop-product {
+    @include ipad-portrait {
+      width: 50%;
+    }
+    @include phone-landscape {
+      width: 50%;
+    }
+    @include phone-portrait {
+      width: 100%;
+    }
+  }
+
+  .qodef-large-width-masonry-item,
+  .qodef-large-width-height-masonry-item {
+    @include ipad-portrait {
+      width: 100%;
+    }
+    @include phone-landscape {
+      width: 100%;
+    }
+    @include phone-portrait {
+      width: 100%;
+    }
+  }
+}
+
+
+
+.qodef-shop-masonry .qodef-shop-product .qodef-masonry-product-overlay-outer .qodef-masonry-product-button{
+
+	@media only screen and (max-width: 1500px){
+		 padding-top: 40px;
+	}
+
+    @include laptop-landscape {
+      padding-top: 25px;
+    }
+
+    @include ipad-landscape{
+      display:none;
+    }
+}
+
+.qodef-shop-masonry .qodef-shop-product .qodef-masonry-product-overlay-outer .qodef-product-list-categories{
+  @include phone-landscape {
+    display:none;
+  }
+}
+
+.qodef-shop-masonry .qodef-shop-product .qodef-masonry-product-cell {
+  @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    padding: 0 25px;
+  }
+}
+
+
+
+/* ==========================================================================
+   End of Shop masonry responsive style
+   ========================================================================== */

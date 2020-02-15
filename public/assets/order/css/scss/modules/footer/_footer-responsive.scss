@@ -1,0 +1,37 @@
+@include ipad-landscape {
+  footer{
+      &.qodef-footer-uncover{
+          position: relative!important;
+          left: 0!important;
+          margin-bottom: 0;
+      }
+  }
+
+  .qodef-content{
+    margin-bottom: 0 !important;
+  }
+}
+
+@include phone-landscape{
+  footer{
+    .qodef-footer-top.qodef-footer-top-full {
+      padding:50px;
+    }
+  }
+}
+
+@include phone-portrait {
+  footer{
+     .qodef-footer-top.qodef-footer-top-full {
+        padding:40px 20px 20px 20px;
+     }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: $ipad-landscape) {
+  footer {
+    .qodef-four-columns .qodef-column {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+Servicetype
+user_id
+name
+coverphoto
+icon
+description //longText
+
+Service
+servicetype_id
+name
+coverphoto
+icon
+description  //longText
+avg_price
+is_active
+
+service_user //***ManyToMany
+
+Commission
+service_id
+amount
+description //longText
+
+Agreement
+user_id
+description //longText
+expiry_date
+
+Order
+user_id
+total_price //integer
+end_date
+
+Orderitem
+order_id
+amount //integer
+description
+due_date
+is_custom_offer
+offer_status //enum
+sales_commission
+billing_type //enum
+status //enum
+photo
+icon
+
+Offer
+orderitem_id
+amount
+validity_time
+
+Workorder
+user_id
+orderitem_id
+status //enum
+photo
+
+Cemetery
+city_id
+name
+lat
+long
+address
+photo
+
+cemetery_user
+
+City
+region_id
+name
+lat
+long
+address
+photo
+
+Region
+name
+lat
+long
+address
+photo
+
+Gravestone
+orderitem_id
+cemetery_id
+description //longtext
+stonesize
+grave_block
+grave_column
+grave_row
+identefier_code
+
+Deceased
+gravestone_id
+first_name
+last_name
+birth_date
+death_date
+
+Invoice
+user_id
+orderitem_id
+invoice_date
+invoice_number
+total_amount
+vat_amount
+description //longtext
+status //enum
+
+Payment
+invoice_id
+method //enum
+amount
+reference
+
+User
+email
+username
+
+// Set hasMany Gravestone in Cemetery to hasOne
+// Set hasMany Gravestone in Orderitem to hasOne
+// Set hasMany Workorder in Orderitem to hasOne
+// Set hasMany Offer in Orderitem to hasOne
+// Set hasMany Agreement in User to hasOne
+// Set hasMany Commision in Service to hasOne

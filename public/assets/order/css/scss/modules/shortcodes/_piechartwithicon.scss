@@ -1,0 +1,59 @@
+/* ==========================================================================
+# Pie Chart With Icon - begin
+========================================================================== */
+
+.qodef-pie-chart-with-icon-holder {
+	position: relative;
+	display: block;
+
+	.qodef-percentage-with-icon {
+		position: relative;
+		display: block;
+		height: 175px;
+		width: 175px;
+		line-height: 175px;
+		text-align: center;
+		margin: 0 auto;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		-webkit-transition: opacity .3s ease 0s;
+		-moz-transition: opacity .3s ease 0s;
+		-o-transition: opacity .3s ease 0s;
+
+		canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		i,
+		span {
+			float: none;
+			margin: 0;
+			color: $first-main-color;
+			vertical-align: middle !important;
+			display: inline;
+		  	font-size: 20px;
+		}
+
+		.qode_icon_font_elegant {
+			line-height: inherit;
+		}
+
+	}
+
+	.qodef-pie-chart-text {
+		text-align: center;
+		margin: 12px 0 0;
+
+		.qodef-pie-title {
+			margin: 0 0 12px;
+		}
+
+	}
+
+}
+
+/* ==========================================================================
+# Pie Chart With Icon - end
+========================================================================== */

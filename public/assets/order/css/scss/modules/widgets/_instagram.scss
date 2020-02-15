@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Instagram start styles
+   ========================================================================== */
+.qodef-instagram-feed {
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-top: 10px;
+    
+    li{
+        float: left;
+        padding: 0;
+        box-sizing: border-box;
+
+        a {
+          position: relative;
+          overflow: hidden;
+          display: block;
+          &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              background-color: rgba(255,255,255,.3);
+              opacity: 0;
+              @include qodefTransition(opacity .35s ease);
+          }
+          &:hover {
+            &:after {
+                opacity: 1;
+                @include qodefTransition(opacity .8s ease);
+            }
+          }
+        }
+        
+        img{
+            display: block;
+        }
+    }
+}
+
+.qodef-instagram-feed.qodef-col-9 li {
+    width: 11.11111111111111%;
+}
+
+.qodef-instagram-feed.qodef-col-6 li {
+    width: 16.66666666666667%;
+}
+
+.qodef-instagram-feed.qodef-col-5 li {
+  width: 18%;
+  margin-right: 2.5%;
+  margin-bottom: 2.5%;
+  &:nth-child(5n) {
+    margin-right: 0;
+  }
+}
+
+.qodef-instagram-feed.qodef-col-4 li {
+    width: 25%;
+}
+
+.qodef-instagram-feed.qodef-col-3 li {
+    width: 33.33%;
+}
+
+.qodef-instagram-feed.qodef-col-2 li {
+    width: 50%;
+}
+/* ==========================================================================
+   Instagram end styles
+   ========================================================================== */

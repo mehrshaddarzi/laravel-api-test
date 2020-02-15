@@ -1,0 +1,260 @@
+entity Agreement {
+    description String,
+    createDate Instant, 
+    expiaryDate Instant
+}
+
+entity User{
+    firstName String,
+    lastName String,
+    email String,
+    phoneNumber String,
+    role Role,
+    roletype UserType,
+    parent Integer,
+    companyName String,
+    companyRegistrationNumber String,
+    companyPhysicalAddress String,
+    country String,
+    city String,
+    street String,
+    zipcode String
+}
+
+
+entity Role{
+	name RoleList,
+}
+
+
+
+enum RoleList{
+    Admin,
+	Customer, 
+    Employee,
+    Company
+}
+
+entity ServiceItem {
+	name String,
+    excerpt String, 
+  	description String,
+  	active Boolean,
+    period Integer,
+    price String
+}
+
+entity OrderItem {
+    amount String, 
+    description String, 
+    dueDate Instant,
+    isCustomOffer Boolean,
+    offerStatus OfferStatus,
+    salesCommission String,
+    commissionPercentage String,
+    commissionAmmount String,
+    orderItemBillingPeriod Integer,
+    orderItemStatus OrderItemStatus,
+    orderItemPhoto ImageBlob,
+    orderItemIcon ImageBlob
+}
+
+entity Offer {
+	amount Integer, 
+    validityTime Instance
+}
+
+entity Order {
+	endDate Instant,
+    totalPrice String,
+    createDate Date
+}
+
+entity Invoice {
+	invoiceDate Instant,
+    dueDate Instant,
+	invoiceNumber String,
+    invoiceTotalAmount String,
+    invoiceVATAmount String,
+    description String,
+  	invoiceStatus InvoiceStatus
+}
+
+entity SubscribeOrder{
+	paymentDate Date,
+    paymentStatus Boolean
+}
+
+entity Payment {
+	amount String,
+    reference String,
+    paymentMethod PaymentMethodTypes 
+}
+
+entity ServiceType {
+	name String,
+	serviceTypeCoverPhoto ImageBlob,
+    serviceTypeIcon ImageBlob,
+	description String
+}
+
+entity Service {
+	name String,
+	serviceCoverPhoto ImageBlob,
+    serviceIcon ImageBlob,
+	description String, 
+    avgPrice String,
+    commisionPercentage String, 
+    commisionDesc String,
+    isActive Boolean
+}
+
+entity Gravestone {
+    description String,
+    stoneSize String,
+    graveBlock String, 
+    graveColumn String, 
+    graveRow String,
+    identifierCode String,
+    photo ImageBlob
+}
+
+entity Region{
+	name String, 
+    lat String, 
+    long String, 
+    address String,
+    coverPhoto ImageBlob
+}
+
+entity City {
+	name String, 
+    lat String, 
+    long String,
+    address String,
+    coverPhoto ImageBlob
+}
+
+entity Cemetery {
+	name String, 
+    lat String, 
+    long String,
+    address String,
+    coverPhoto ImageBlob
+}
+
+entity Deceased {
+	firstName String, 
+    lastName String, 
+    birthDate Instant,
+    deathDate Instant
+}
+
+entity ServiceReqestSubscribtion{
+	
+}
+
+
+entity CreditCard {
+	serviceName PaymentMethodTypes,
+    creaditNumber String,
+    expiryDate Date,
+}
+
+entity Ticket {
+	chatId String, //random text
+	content String,
+    file String,
+    isRead Boolean,
+    isClosed Boolean
+}
+
+entity WorkOrder {
+	description String,
+    beforePhoto ImageBlob,
+    afterPhoto ImageBlob,
+    workOrderStatus WorkOrderStatus,
+    endDate Date
+}
+
+enum OfferStatus {
+    DRAFT, SENT, APPROVED, MODIFY, REJECT
+}
+
+enum OrderItemStatus {
+	NEW, SCHEDULED, INPROGRESS, DONE, PENDING, CANCELLED
+}
+
+enum WorkOrderStatus{
+	PICKED, SHIFTED, DONE, FAILED
+}
+
+enum InvoiceStatus {
+	SENT, PAID, OVERDUE, PARTIAL, VOID
+}
+
+
+enum PaymentMethodTypes{
+	BAMBORA, STRIPE, CASH, INVOICE
+}
+
+relationship ManyToMany {
+    User{service} to Service{company},
+    Service to Cemetery,
+    Gravestone to User
+}
+
+relationship OneToMany {
+    Order to OrderItem{order},
+    OrderItem to Invoice{orderItem},
+	Invoice to Payment{invoice},
+    User{invoice} to Invoice{User},
+	User to OrderItem{company},
+    User to Agreement{company},
+    User to Order{User},
+    User to WorkOrder{employee},
+    User to ServiceType{User},
+    Gravestone to Deceased,
+    ServiceType to Service,
+    Service to ServiceItem
+    Cemetery to City{cemetery},
+    City to Region{city},
+    SubscribeOrder to User,
+    SubscribeOrder to OrderItem,
+    SubscribeOrder to ServiceItem,
+  	Ticket to User{customer},
+    Ticket to User{SuperAdmin}
+}
+
+relationship ManyToOne {
+	User  to User,
+    Role to User
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	OrderItem to Gravestone,
+	OrderItem to WorkOrder,
+    OrderItem to User,
+    Gravestone to Cemetery,
+    Offer to OrderItem,
+    OrderItem to ServiceItem,
+    User to Offer,
+    User to CreditCard,
+    ServiceReqestSubscribtion to User{comapnyId},
+    ServiceReqestSubscribtion to User{customerId},
+	ServiceReqestSubscribtion to Service,
+    ServiceReqestSubscribtion to Cemetery
+}
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+//dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

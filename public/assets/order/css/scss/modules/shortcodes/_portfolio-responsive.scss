@@ -1,0 +1,44 @@
+@media only screen and (max-width: $ipad-landscape){
+    .qodef-portfolio-list-holder-outer.qodef-ptf-four-columns article,
+    .qodef-portfolio-list-holder-outer.qodef-ptf-five-columns article,
+    .qodef-portfolio-list-holder-outer.qodef-ptf-six-columns article{
+        width: 33.33%;
+    }  
+    .qodef-portfolio-list-holder-outer.qodef-ptf-pinterest-five-columns,
+    .qodef-portfolio-list-holder-outer.qodef-ptf-pinterest-four-columns{
+        article,
+        .qodef-portfolio-list-masonry-grid-sizer{
+            width: 33.33%;
+        }
+    }
+    .qodef-portfolio-list-holder-outer.qodef-ptf-masonry{
+    
+        .qodef-portfolio-list-masonry-grid-sizer,
+        article.qodef-default-masonry-item,
+        article.qodef-large-height-masonry-item{
+            width: 50%;
+        }
+        .qodef-large-width-masonry-item,
+        .qodef-large-width-height-masonry-item{
+            width: 100%;
+        }
+    }
+   
+}
+
+@media only screen and (max-width: $phone-landscape){
+    .qodef-portfolio-list-holder-outer article,
+    .qodef-portfolio-list-holder-outer .qodef-portfolio-list-masonry-grid-sizer{
+        width: 100% !important; // !important is set to override all other stronger selectors
+    } 
+    .qodef-portfolio-filter-holder{
+        .qodef-portfolio-filter-holder-inner ul li{
+            float:none;
+            text-align: left;
+            span{
+                padding-left: 0;
+            }
+        }   
+        
+    }
+}

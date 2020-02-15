@@ -1,0 +1,355 @@
+
+/* ==========================================================================
+   Portfolio shortcode styles - begin
+   ========================================================================== */
+.qodef-portfolio-filter-holder{
+    @include qodefTableLayout;
+    margin : 0 0 27px;
+    .qodef-portfolio-filter-holder-inner{
+        @include qodefTableCellLayout;
+        text-align: left;
+        ul{
+            display: inline-block;
+            list-style: none;
+            vertical-align: middle;
+            width:100%;
+            text-align:center;
+        }
+        ul li{
+            cursor: pointer;
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+            
+            span{
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                padding: 0 15px;
+                color: #252525;
+                letter-spacing: 0;
+                font-size:12px;
+                font-weight:600;
+                text-transform: uppercase;
+                @include qodefTransition(color 0.2s ease-out);
+                font-family:'Poppins', sans-serif;
+            }
+
+            &:first-child span{
+                padding-left: 0
+            }
+        }
+        ul li.active span,
+        ul li.current span,
+        ul li span:hover{
+            color: $first-main-color;
+        }
+    }
+}
+
+.qodef-portfolio-list-holder{
+    height: 100%;  
+    article{
+        position:relative;
+        margin: 0;   
+        vertical-align: top;  
+        margin: 0 0 2%;  
+        width: 100%;
+        .qodef-item-image-holder{
+            position: relative;
+            a{
+                display: block 
+                    
+            }
+            img,
+            a img{
+                vertical-align: top;
+                height: auto;
+                max-width: 100%;
+            }
+        }
+
+    }
+    article.mix{
+        display: none;
+        visibility: hidden;    
+        float: left;
+    }
+}
+
+.qodef-portfolio-list-holder-outer.qodef-ptf-two-columns{
+    article{
+     width: 50%;   
+    }
+}
+.qodef-portfolio-list-holder-outer.qodef-ptf-three-columns{
+    article{
+       width: 33.33%;   
+    }
+    
+}
+.qodef-portfolio-list-holder-outer.qodef-ptf-four-columns{
+    article{
+        width: 25%;
+    }
+}
+.qodef-portfolio-list-holder-outer.qodef-ptf-five-columns{
+    article{
+        width: 20%;
+    }   
+}
+.qodef-portfolio-list-holder-outer.qodef-ptf-six-columns{
+    article{
+        width: 16.66%;
+    }    
+}
+
+.qodef-portfolio-list-holder-outer.qodef-ptf-standard{
+    article{
+        .qodef-item-text-holder .qodef-item-title{
+            padding: 10px 0;
+        }
+        &:hover{
+            .qodef-item-icons-holder{
+                opacity: 1;
+                @include qodefTransform(translateY(0));
+            }
+        }
+    }
+    
+}
+.qodef-portfolio-list-holder-outer.qodef-ptf-gallery{
+
+    &.qodef-ptf-modern-hover {
+        %qodef-portfolio-line {
+            content: '';
+            position: absolute;
+            z-index: 10;
+            width: 45%;
+            height: 2px;
+            top:50%;
+            background: #fff;
+            opacity: 0;
+            -webkit-transition: opacity .2s ease, -webkit-transform .0s .2s;
+            transition: opacity .2s ease, transform .0s .2s;
+        }
+
+        article:hover{
+            .qodef-item-text-overlay{
+                opacity: 1;
+                -webkit-transition: opacity 0.8s ease 0.15s;
+                transition: opacity 0.8s ease 0.15s;
+            }
+
+
+            &:before {
+                opacity: 1;
+                -webkit-transition: opacity .3s ease .05s, -webkit-transform 2s cubic-bezier(0.26, 0.63, 0, 0.96) ;
+                transition: opacity .3s ease .05s, transform 2s cubic-bezier(0.26, 0.63, 0, 0.96);
+                @include qodefTransform(rotate(-45deg) translateX(-600px));
+            }
+
+            &:after {
+                opacity: 1;
+                -webkit-transition: opacity .4s ease, -webkit-transform 2s cubic-bezier(0.26, 0.63, 0, 0.96);
+                transition: opacity .4s ease, transform 2s cubic-bezier(0.26, 0.63, 0, 0.96);
+                @include qodefTransform(rotate(-45deg) translateX(600px));
+            }
+
+        }
+    }
+
+    &.qodef-ptf-diagonal-hover {
+        article {
+            .qodef-item-text-overlay{ 
+                overflow: hidden;
+                background-color: transparent;
+                opacity: 1;
+                @include qodefTransition(opacity 0.2s ease);
+                .qodef-item-text-overlay-inner {
+                    position: relative;
+                    opacity: 0;
+                    z-index: 300;
+                    -webkit-transition: opacity 0.2s ease;
+                    transition: opacity 0.2s ease;
+                }
+                &:after {
+                    content:'';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    height: 200%;
+                    width: 200%;
+                    @include qodefTransform(rotate(-45deg) translate(0, 120%));
+                    background-color: rgba(0,0,0,.45);
+                    opacity: 0;
+                    -webkit-transition:opacity .2s ease, -webkit-transform 0s ease .2s;
+                    transition:opacity .2s ease, transform 0s ease .2s;
+                }
+            }
+            &:hover{
+                .qodef-item-text-overlay{ 
+                    .qodef-item-text-overlay-inner{
+                        opacity: 1;
+                        -webkit-transition: opacity 0.4s ease .15s;
+                        transition: opacity 0.4s ease .15s;
+                    }
+                    &:after {
+                        @include qodefTransform(rotate(-45deg));
+                        opacity: 1;
+                        -webkit-transition: opacity .5s ease, -webkit-transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+                        transition: opacity .5s ease, transform 1s cubic-bezier(0.26, 0.63, 0, 0.96);
+                    }
+                }
+            }
+        }
+    }
+
+    &.qodef-ptf-fade-hover {
+        article {
+            .qodef-item-text-overlay{ 
+                @include qodefTransform(scale(1) translateZ(0));
+            }
+            &:hover{
+                .qodef-item-text-overlay{
+                    opacity: 1;
+                    -webkit-transition: opacity 0.6s ease;
+                    transition: opacity 0.6s ease;
+                }
+            }
+        }
+    }
+
+    article{
+        margin:0;
+        overflow: hidden;
+
+        &:before {
+            @extend %qodef-portfolio-line;
+            -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+            @include qodefTransform(rotate(-45deg));
+            left: 50%;
+        }
+
+        &:after {
+            @extend %qodef-portfolio-line;
+            right: 50%;
+            -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+            @include qodefTransform(rotate(-45deg));
+        }
+
+        .qodef-item-title-holder{
+            padding:11px 42px;
+            display:inline-block;
+            vertical-align:middle;
+            position: relative;
+
+            .qodef-item-title{
+                color:#fff;
+                margin:0;
+                padding:0;
+            }
+        }
+        .qodef-item-image-holder{
+            overflow: hidden;
+        }
+        
+        .qodef-item-image-holder{
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+        }
+
+        .qodef-portfolio-link{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 30;
+        }
+        
+        .qodef-item-text-overlay{
+            position: absolute;
+            z-index: 20;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            background-color: rgba(0,0,0,.5);
+            outline:1px solid transparent; //moz glitch fix
+            -webkit-transition: -webkit-transform .0s .2s, opacity .2s ease-out;
+            transition: transform .0s .2s, opacity .2s ease-out;
+        }
+        .qodef-item-text-overlay-inner{
+            @include  qodefTableLayout;
+        }
+        
+        .qodef-item-text-holder{
+            @include qodefTableCellLayout;            
+        }
+        
+        .qodef-item-text-holder .qodef-item-title > a,
+        .qodef-item-text-holder .qodef-ptf-category-holder span{
+            color: $first-main-color;
+            font-weight: 500;
+        }
+        
+    }
+}
+
+/* Portfolio Load More Buttons - begin */
+.qodef-portfolio-list-holder-outer .qodef-ptf-list-paging{
+    text-align: center;
+    margin: 35px 0 0 0;
+    opacity: 0;
+    &.qodef-appeared {
+        @include qodefTransition(opacity .3s ease);
+        opacity: 1;
+    }
+}
+
+/* Portfolio Load More Buttons - end */
+
+/* Portfolio Slider custom styles - begin */
+
+.qodef-portfolio-slider-holder{
+    .qodef-portfolio-list-holder.owl-carousel{
+        .owl-buttons {
+            width: 100%;   
+            .owl-prev {
+                left: 2%;
+                position: absolute;
+                top: 50%;
+                @include qodefTransform(translateY(-50%));
+            }
+            .owl-next {
+                right: 2%;
+                position: absolute;
+                top: 50%;
+                @include qodefTransform(translateY(-50%));
+            }
+            .qodef-prev-icon,
+            .qodef-next-icon {
+                display: inline-block;
+                width: 42px;
+                height: 42px;
+                @include qodefBorderRadius(50%);
+                border: 2px solid $first-main-color;
+                text-align: center;
+                i {
+                    font-size: 22px;
+                    line-height: 40px;
+                    color: $first-main-color;
+                }
+            }
+        }
+    }
+}
+/* Portfolio Slider custom styles - end */
+  
+/* ==========================================================================
+   Portfolio styles - end
+   ========================================================================== */

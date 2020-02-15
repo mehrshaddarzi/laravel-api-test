@@ -1,0 +1,168 @@
+/* ==========================================================================
+# Social Share style - begin
+========================================================================== */
+
+.qodef-social-share-holder {
+	
+	ul {
+		list-style: none;
+		display: inline-block;
+
+	  	li a {
+		  font-size: 15px;
+		  color: #C8C8C8;
+
+		  	&:hover{
+		  		color: $first-main-color;
+			}
+		}
+	}
+
+  	&.square {
+	  ul {
+		li a {
+		  font-size: 12px;
+		  color: #fff;
+		  background-color: #c8c8c8;
+		  display: inline-block;
+		  width: 23px;
+		  height: 23px;
+		  text-align: center;
+		  @include qodefBorderRadius(5px);
+		  @include qodefTransition(color 0.15s ease-out);
+
+		  &:hover{
+			background-color: $first-main-color;
+		  }
+
+		  .qodef-social-network-icon {
+			line-height: 23px;
+		  }
+		}
+	  }
+	}
+}
+
+/* List type - begin
+========================================================================== */
+
+
+.qodef-social-share-holder.qodef-list {
+
+	li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+}
+
+/* List type - end
+========================================================================== */
+
+/* Dropdown type - begin
+========================================================================== */
+
+.qodef-social-share-holder.qodef-dropdown {
+	position: relative;
+	display: inline-block;
+
+	.qodef-social-share-dropdown-opener {
+		display: block;
+	}
+
+	.qodef-social-share-title {
+		display: inline-block;
+		margin-left: 5px;
+	}
+
+	.qodef-social-share-dropdown {
+		visibility: hidden;
+		z-index: 950;
+		float: left;
+
+		ul {
+			position: relative;
+			display: block;
+			z-index: 990;
+			padding: 0 !important;
+			min-width: 50px;
+			font-weight: 400;
+		}
+
+		ul li {
+			visibility: hidden;
+			position: absolute;
+			text-align: center;
+			min-width: 50px;
+			float:left;
+			opacity: 0.2;
+			@include qodefTransition(all 0.2s ease-out);
+		}
+
+		img {
+			width: 8px;
+			margin-right: 10px;
+		}
+
+	}
+
+}
+
+.qodef-social-share-holder.qodef-dropdown:hover {
+
+	.qodef-social-share-dropdown ul li {
+		opacity: 1;
+		visibility: visible;
+		cursor: pointer;
+	}
+
+	.qodef-social-share-dropdown ul li {
+
+		&:nth-child(2) {
+			left: 50px;
+			transition-delay: .1s;
+		}
+
+		&:nth-child(3){
+			left: 100px;
+			transition-delay: .2s;
+		}
+
+		&:nth-child(4){
+			left: 150px;
+			transition-delay: .3s;
+		}
+
+		&:nth-child(5){
+			left: 200px;
+			transition-delay: .4s;
+		}
+
+		&:nth-child(6){
+			left: 250px;
+			transition-delay: 0.5s;
+		}
+
+		&:nth-child(7){
+			left: 300px;
+			transition-delay: 0.6s;
+		}
+
+	}
+
+}
+
+/* Dropdown type - end
+========================================================================== */
+
+/* ==========================================================================
+# Social Share style - end
+========================================================================== */
+
+
+
+
+
+
+
+
